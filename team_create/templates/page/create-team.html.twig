@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle equipe{% endblock %}
+
+{% block body %}
+<h2>Création d'une equipe</h2>
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.city) }}
+    <button>Ajouter</button>
+{{ form_end(form) }}
+{# {{ form(form) }} #}
+{# <button>Ajouter</button> #}
+{% endblock %}
