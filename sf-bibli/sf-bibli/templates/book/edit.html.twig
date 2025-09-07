@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modifier un livre
+{% endblock %}
+
+{% block body %}
+	<h1>Modifier un livre</h1>
+	{{ form_start(form) }}
+	{{ form_row(form.title) }}
+	{{ form_row(form.author) }}
+	{{ form_row(form.publishedAt) }}
+	{{ form_row(form.category) }}
+	<button>Modifier</button>
+	{{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	bibliotheque
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h1>Bienvenue dans ma bibliotheque</h1>
+	</div>
+	<a href="#">Ajouter un livre</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Titre</th>
+				<th>Auteur</th>
+				<th>Genre</th>
+				<th>Date</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in books %}
+				<tr>
+					<td>{{ book.title }}</td>
+					<td>{{ book.author }}</td>
+					<td>{{ book.category.name }}</td>
+					<td>{{ book.getPublishedAt().format('d/m/Y') }}</td>
+					<td>
+						<a href="{{ path('app_book_show', {id: book.id}) }}">Voir</a>
+						<a href="{{ path("app_book_edit", {id: book.id}) }}">Editer</a>
+						<a href="{{ path("app_book_delete",{id: book.id}) }}" onclick="return confirm('voulez vous vraiment supprimer ce livre');">Supprimer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">
+						Aucun livre en DB
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

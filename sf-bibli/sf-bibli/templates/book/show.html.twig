@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	bibliotheque
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h1>{{ book.title }}</h1>
+		<h2>{{ book.author }}</h2>
+		<p>{{ book.category.name }}</p>
+		<p>{{ book.getPublishedAt().format('d/m/Y h:m:s') }}</p>
+	</div>
+{% endblock %}
